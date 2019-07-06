@@ -99,7 +99,7 @@ func TestFromTag(t *testing.T) {
 
 func TestTable(t *testing.T) {
 	for i := 4; i < len(currency); i += 4 {
-		if a, b := currency[i-4:i-1], currency[i:i+3]; a >= b {
+		if a, b := currency[i-4 : i-1], currency[i : i+3]; a >= b {
 			t.Errorf("currency unordered at element %d: %s >= %s", i, a, b)
 		}
 	}

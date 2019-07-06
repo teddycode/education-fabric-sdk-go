@@ -44,9 +44,9 @@ type itemType int
 const (
 	itemError itemType = iota // error occurred; value is text of error
 	itemEOF
-	itemKey     // a key
-	itemValue   // a value
-	itemComment // a comment
+	itemKey      // a key
+	itemValue    // a value
+	itemComment  // a comment
 )
 
 // defines a constant for EOF

@@ -240,51 +240,51 @@ var keyFromElemTests = []keyFromElemTest{
 	{ // simple primary and secondary weights.
 		opts{alt: altShifted},
 		ColElems{W(0x200), W(0x7FFF), W(0, 0x30), W(0x100)},
-		[]byte{0x2, 0, 0x7F, 0xFF, 0x1, 0x00, // primary
+		[]byte{0x2, 0, 0x7F, 0xFF, 0x1, 0x00,             // primary
 			sep, sep, 0, defS, 0, defS, 0, 0x30, 0, defS, // secondary
-			sep, sep, defT, defT, defT, defT, // tertiary
-			sep, 0xFF, 0xFF, 0xFF, 0xFF, // quaternary
+			sep, sep, defT, defT, defT, defT,             // tertiary
+			sep, 0xFF, 0xFF, 0xFF, 0xFF,                  // quaternary
 		},
 	},
 	{ // same as first, but with zero element that need to be removed
 		opts{alt: altShifted},
 		ColElems{W(0x200), zero, W(0x7FFF), W(0, 0x30), zero, W(0x100)},
-		[]byte{0x2, 0, 0x7F, 0xFF, 0x1, 0x00, // primary
+		[]byte{0x2, 0, 0x7F, 0xFF, 0x1, 0x00,             // primary
 			sep, sep, 0, defS, 0, defS, 0, 0x30, 0, defS, // secondary
-			sep, sep, defT, defT, defT, defT, // tertiary
-			sep, 0xFF, 0xFF, 0xFF, 0xFF, // quaternary
+			sep, sep, defT, defT, defT, defT,             // tertiary
+			sep, 0xFF, 0xFF, 0xFF, 0xFF,                  // quaternary
 		},
 	},
 	{ // same as first, with large primary values
 		opts{alt: altShifted},
 		ColElems{W(0x200), W(0x8000), W(0, 0x30), W(0x12345)},
 		[]byte{0x2, 0, 0x80, 0x80, 0x00, 0x81, 0x23, 0x45, // primary
-			sep, sep, 0, defS, 0, defS, 0, 0x30, 0, defS, // secondary
-			sep, sep, defT, defT, defT, defT, // tertiary
-			sep, 0xFF, 0xFF, 0xFF, 0xFF, // quaternary
+			sep, sep, 0, defS, 0, defS, 0, 0x30, 0, defS,  // secondary
+			sep, sep, defT, defT, defT, defT,              // tertiary
+			sep, 0xFF, 0xFF, 0xFF, 0xFF,                   // quaternary
 		},
 	},
 	{ // same as first, but with the secondary level backwards
 		opts{alt: altShifted, backwards: true},
 		ColElems{W(0x200), W(0x7FFF), W(0, 0x30), W(0x100)},
-		[]byte{0x2, 0, 0x7F, 0xFF, 0x1, 0x00, // primary
+		[]byte{0x2, 0, 0x7F, 0xFF, 0x1, 0x00,             // primary
 			sep, sep, 0, defS, 0, 0x30, 0, defS, 0, defS, // secondary
-			sep, sep, defT, defT, defT, defT, // tertiary
-			sep, 0xFF, 0xFF, 0xFF, 0xFF, // quaternary
+			sep, sep, defT, defT, defT, defT,             // tertiary
+			sep, 0xFF, 0xFF, 0xFF, 0xFF,                  // quaternary
 		},
 	},
 	{ // same as first, ignoring quaternary level
 		opts{alt: altShifted, lev: 3},
 		ColElems{W(0x200), zero, W(0x7FFF), W(0, 0x30), zero, W(0x100)},
-		[]byte{0x2, 0, 0x7F, 0xFF, 0x1, 0x00, // primary
+		[]byte{0x2, 0, 0x7F, 0xFF, 0x1, 0x00,             // primary
 			sep, sep, 0, defS, 0, defS, 0, 0x30, 0, defS, // secondary
-			sep, sep, defT, defT, defT, defT, // tertiary
+			sep, sep, defT, defT, defT, defT,             // tertiary
 		},
 	},
 	{ // same as first, ignoring tertiary level
 		opts{alt: altShifted, lev: 2},
 		ColElems{W(0x200), zero, W(0x7FFF), W(0, 0x30), zero, W(0x100)},
-		[]byte{0x2, 0, 0x7F, 0xFF, 0x1, 0x00, // primary
+		[]byte{0x2, 0, 0x7F, 0xFF, 0x1, 0x00,             // primary
 			sep, sep, 0, defS, 0, defS, 0, 0x30, 0, defS, // secondary
 		},
 	},
@@ -296,17 +296,17 @@ var keyFromElemTests = []keyFromElemTest{
 	{ // simple primary and secondary weights.
 		opts{alt: altShiftTrimmed, top: 0x250},
 		ColElems{W(0x300), W(0x200), W(0x7FFF), W(0, 0x30), W(0x800)},
-		[]byte{0x3, 0, 0x7F, 0xFF, 0x8, 0x00, // primary
+		[]byte{0x3, 0, 0x7F, 0xFF, 0x8, 0x00,             // primary
 			sep, sep, 0, defS, 0, defS, 0, 0x30, 0, defS, // secondary
-			sep, sep, defT, defT, defT, defT, // tertiary
-			sep, 0xFF, 0x2, 0, // quaternary
+			sep, sep, defT, defT, defT, defT,             // tertiary
+			sep, 0xFF, 0x2, 0,                            // quaternary
 		},
 	},
 	{ // as first, primary with case level enabled
 		opts{alt: altShifted, lev: 1, caseLevel: true},
 		ColElems{W(0x200), W(0x7FFF), W(0, 0x30), W(0x100)},
 		[]byte{0x2, 0, 0x7F, 0xFF, 0x1, 0x00, // primary
-			sep, sep, // secondary
+			sep, sep,                         // secondary
 			sep, sep, defT, defT, defT, defT, // tertiary
 		},
 	},

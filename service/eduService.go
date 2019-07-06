@@ -5,9 +5,9 @@
 package service
 
 import (
-	"github.com/hyperledger/fabric-sdk-go/pkg/client/channel"
 	"encoding/json"
 	"fmt"
+	"github.com/hyperledger/fabric-sdk-go/pkg/client/channel"
 )
 
 func (t *ServiceSetup) SaveEdu(edu Education) (string, error) {
@@ -36,8 +36,7 @@ func (t *ServiceSetup) SaveEdu(edu Education) (string, error) {
 	return string(respone.TransactionID), nil
 }
 
-
-func (t *ServiceSetup) FindEduInfoByEntityID(entityID string) ([]byte, error){
+func (t *ServiceSetup) FindEduInfoByEntityID(entityID string) ([]byte, error) {
 
 	req := channel.Request{ChaincodeID: t.ChaincodeID, Fcn: "queryEduInfoByEntityID", Args: [][]byte{[]byte(entityID)}}
 	respone, err := t.Client.Query(req)
@@ -48,7 +47,7 @@ func (t *ServiceSetup) FindEduInfoByEntityID(entityID string) ([]byte, error){
 	return respone.Payload, nil
 }
 
-func (t *ServiceSetup) FindEduByCertNoAndName(certNo, name string) ([]byte, error){
+func (t *ServiceSetup) FindEduByCertNoAndName(certNo, name string) ([]byte, error) {
 
 	req := channel.Request{ChaincodeID: t.ChaincodeID, Fcn: "queryEduByCertNoAndName", Args: [][]byte{[]byte(certNo), []byte(name)}}
 	respone, err := t.Client.Query(req)
@@ -104,4 +103,3 @@ func (t *ServiceSetup) DelEdu(entityID string) (string, error) {
 
 	return string(respone.TransactionID), nil
 }
-

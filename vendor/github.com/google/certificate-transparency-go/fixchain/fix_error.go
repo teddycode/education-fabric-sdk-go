@@ -32,7 +32,7 @@ const (
 	ParseFailure
 	CannotFetchURL
 	FixFailed
-	LogPostFailed // Posting to log failed
+	LogPostFailed  // Posting to log failed
 	VerifyFailed
 )
 

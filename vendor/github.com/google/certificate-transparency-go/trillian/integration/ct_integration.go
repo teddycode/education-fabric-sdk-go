@@ -845,7 +845,6 @@ type logStats struct {
 	lastSTHTreesize  int
 	reqs             map[string]int            // entrypoint =>count
 	rsps             map[string]map[string]int // entrypoint => status => count
-
 }
 
 func newLogStats(logID int64) *logStats {

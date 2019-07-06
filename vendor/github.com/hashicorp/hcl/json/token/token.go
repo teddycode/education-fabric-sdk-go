@@ -24,23 +24,23 @@ const (
 
 	identifier_beg
 	literal_beg
-	NUMBER // 12345
-	FLOAT  // 123.45
-	BOOL   // true,false
-	STRING // "abc"
-	NULL   // null
+	NUMBER  // 12345
+	FLOAT   // 123.45
+	BOOL    // true,false
+	STRING  // "abc"
+	NULL    // null
 	literal_end
 	identifier_end
 
 	operator_beg
-	LBRACK // [
-	LBRACE // {
-	COMMA  // ,
-	PERIOD // .
-	COLON  // :
+	LBRACK  // [
+	LBRACE  // {
+	COMMA   // ,
+	PERIOD  // .
+	COLON   // :
 
-	RBRACK // ]
-	RBRACE // }
+	RBRACK  // ]
+	RBRACE  // }
 
 	operator_end
 )

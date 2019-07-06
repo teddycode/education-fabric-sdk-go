@@ -1539,8 +1539,8 @@ func (g *Generator) goTag(message *Descriptor, field *descriptor.FieldDescriptor
 	}
 	packed := ""
 	if (field.Options != nil && field.Options.GetPacked()) ||
-		// Per https://developers.google.com/protocol-buffers/docs/proto3#simple:
-		// "In proto3, repeated fields of scalar numeric types use packed encoding by default."
+	// Per https://developers.google.com/protocol-buffers/docs/proto3#simple:
+	// "In proto3, repeated fields of scalar numeric types use packed encoding by default."
 		(message.proto3() && (field.Options == nil || field.Options.Packed == nil) &&
 			isRepeated(field) && isScalar(field)) {
 		packed = ",packed"

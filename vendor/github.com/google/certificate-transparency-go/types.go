@@ -290,7 +290,7 @@ type SignedCertificateTimestamp struct {
 	SCTVersion Version `tls:"maxval:255"`
 	LogID      LogID
 	Timestamp  uint64
-	Extensions CTExtensions    `tls:"minlen:0,maxlen:65535"`
+	Extensions CTExtensions `tls:"minlen:0,maxlen:65535"`
 	Signature  DigitallySigned // Signature over TLS-encoded CertificateTimestamp
 }
 

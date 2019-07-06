@@ -1015,7 +1015,7 @@ type headerType int
 const (
 	noHeader headerType = iota // omitted
 	oneHeader
-	splitHeader // broken into continuation on purpose
+	splitHeader  // broken into continuation on purpose
 )
 
 const (

@@ -113,12 +113,12 @@ func startServers(t *testing.T, numServers int, maxStreams uint32) ([]*server, *
 	// Point to server[0]
 	addr := "localhost:" + servers[0].port
 	return servers, &testNameResolver{
-			addr: addr,
-		}, func() {
-			for i := 0; i < numServers; i++ {
-				servers[i].stop()
-			}
+		addr: addr,
+	}, func() {
+		for i := 0; i < numServers; i++ {
+			servers[i].stop()
 		}
+	}
 }
 
 func TestNameDiscovery(t *testing.T) {

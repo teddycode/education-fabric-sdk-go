@@ -45,70 +45,70 @@ const (
 
 	defaultCertificateSCTSignatureInputHexString string =
 	// version, 1 byte
-	"00" +
-		// signature type, 1 byte
 		"00" +
+		// signature type, 1 byte
+			"00" +
 		// timestamp, 8 bytes
-		"00000000000004d2" +
+			"00000000000004d2" +
 		// entry type, 2 bytes
-		"0000" +
+			"0000" +
 		// leaf certificate length, 3 bytes
-		"00000b" +
+			"00000b" +
 		// leaf certificate, 11 bytes
-		"6365727469666963617465" +
+			"6365727469666963617465" +
 		// extensions length, 2 bytes
-		"0000" +
+			"0000" +
 		// extensions, 0 bytes
-		""
+			""
 
 	defaultPrecertSCTSignatureInputHexString string =
 	// version, 1 byte
-	"00" +
-		// signature type, 1 byte
 		"00" +
+		// signature type, 1 byte
+			"00" +
 		// timestamp, 8 bytes
-		"00000000000004d2" +
+			"00000000000004d2" +
 		// entry type, 2 bytes
-		"0001" +
+			"0001" +
 		// issuer key hash, 32 bytes
-		"69616d617075626c69636b657973686174776f66697665736978646967657374" +
+			"69616d617075626c69636b657973686174776f66697665736978646967657374" +
 		// tbs certificate length, 3 bytes
-		"000003" +
+			"000003" +
 		// tbs certificate, 3 bytes
-		"746273" +
+			"746273" +
 		// extensions length, 2 bytes
-		"0000" +
+			"0000" +
 		// extensions, 0 bytes
-		""
+			""
 
 	defaultSTHSignedHexString string =
 	// version, 1 byte
-	"00" +
+		"00" +
 		// signature type, 1 byte
-		"01" +
+			"01" +
 		// timestamp, 8 bytes
-		"0000000000000929" +
+			"0000000000000929" +
 		// tree size, 8 bytes
-		"0000000000000006" +
+			"0000000000000006" +
 		// root hash, 32 bytes
-		"696d757374626565786163746c7974686972747974776f62797465736c6f6e67"
+			"696d757374626565786163746c7974686972747974776f62797465736c6f6e67"
 
 	defaultSCTHexString string =
 	// version, 1 byte
-	"00" +
+		"00" +
 		// keyid, 32 bytes
-		"69616d617075626c69636b657973686174776f66697665736978646967657374" +
+			"69616d617075626c69636b657973686174776f66697665736978646967657374" +
 		// timestamp, 8 bytes
-		"00000000000004d2" +
+			"00000000000004d2" +
 		// extensions length, 2 bytes
-		"0000" +
+			"0000" +
 		// extensions, 0 bytes
 		// hash algo, sig algo, 2 bytes
-		"0403" +
+			"0403" +
 		// signature length, 2 bytes
-		"0009" +
+			"0009" +
 		// signature, 9 bytes
-		"7369676e6174757265"
+			"7369676e6174757265"
 
 	defaultSCTListHexString string = "0476007400380069616d617075626c69636b657973686174776f6669766573697864696765737400000000000004d20000040300097369676e617475726500380069616d617075626c69636b657973686174776f6669766573697864696765737400000000000004d20000040300097369676e6174757265"
 )
@@ -250,19 +250,19 @@ func TestSerializeV1SCTJSONSignature(t *testing.T) {
 	expected := dh(
 		// version, 1 byte
 		"00" +
-			// signature type, 1 byte
+		// signature type, 1 byte
 			"00" +
-			// timestamp, 8 bytes
+		// timestamp, 8 bytes
 			"00000000000004d2" +
-			// entry type, 2 bytes
+		// entry type, 2 bytes
 			"8000" +
-			// tbs certificate length, 18 bytes
+		// tbs certificate length, 18 bytes
 			"000012" +
-			// { "data": "data" }, 3 bytes
+		// { "data": "data" }, 3 bytes
 			"7b202264617461223a20226461746122207d" +
-			// extensions length, 2 bytes
+		// extensions length, 2 bytes
 			"0000" +
-			// extensions, 0 bytes
+		// extensions, 0 bytes
 			"")
 	serialized, err := SerializeSCTSignatureInput(defaultSCT(), entry)
 	if err != nil {

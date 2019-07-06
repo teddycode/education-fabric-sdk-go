@@ -28,28 +28,28 @@ const (
 	COMMENT
 
 	identifier_beg
-	IDENT // literals
+	IDENT  // literals
 	literal_beg
-	NUMBER  // 12345
-	FLOAT   // 123.45
-	BOOL    // true,false
-	STRING  // "abc"
-	HEREDOC // <<FOO\nbar\nFOO
+	NUMBER   // 12345
+	FLOAT    // 123.45
+	BOOL     // true,false
+	STRING   // "abc"
+	HEREDOC  // <<FOO\nbar\nFOO
 	literal_end
 	identifier_end
 
 	operator_beg
-	LBRACK // [
-	LBRACE // {
-	COMMA  // ,
-	PERIOD // .
+	LBRACK  // [
+	LBRACE  // {
+	COMMA   // ,
+	PERIOD  // .
 
-	RBRACK // ]
-	RBRACE // }
+	RBRACK  // ]
+	RBRACE  // }
 
-	ASSIGN // =
-	ADD    // +
-	SUB    // -
+	ASSIGN  // =
+	ADD     // +
+	SUB     // -
 	operator_end
 )
 

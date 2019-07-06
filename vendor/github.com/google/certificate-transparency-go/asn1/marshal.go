@@ -480,7 +480,7 @@ func makeBody(value reflect.Value, params fieldParameters) (e encoder, err error
 		default:
 			m := make([]encoder, n1)
 			for i := 0; i < n1; i++ {
-				m[i], err = makeField(v.Field(i+startingField), parseFieldParameters(t.Field(i+startingField).Tag.Get("asn1")))
+				m[i], err = makeField(v.Field(i+startingField), parseFieldParameters(t.Field(i + startingField).Tag.Get("asn1")))
 				if err != nil {
 					return nil, err
 				}

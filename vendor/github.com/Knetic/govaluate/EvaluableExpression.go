@@ -15,7 +15,6 @@ var DUMMY_PARAMETERS = MapParameters(map[string]interface{}{})
 	are an expression that can be evaluated down into a single value.
 */
 type EvaluableExpression struct {
-
 	/*
 		Represents the query format used to output dates. Typically only used when creating SQL or Mongo queries from an expression.
 		Defaults to the complete ISO8601 format, including nanoseconds.
@@ -173,27 +172,27 @@ func (this EvaluableExpression) evaluateStage(stage *evaluationStage, parameters
 
 	if stage.isShortCircuitable() {
 		switch stage.symbol {
-			case AND:
-				if left == false {
-					return false, nil
-				}
-			case OR:
-				if left == true {
-					return true, nil
-				}
-			case COALESCE:
-				if left != nil {
-					return left, nil
-				}
-			
-			case TERNARY_TRUE:
-				if left == false {
-					right = shortCircuitHolder
-				}
-			case TERNARY_FALSE:
-				if left != nil {
-					right = shortCircuitHolder
-				}
+		case AND:
+			if left == false {
+				return false, nil
+			}
+		case OR:
+			if left == true {
+				return true, nil
+			}
+		case COALESCE:
+			if left != nil {
+				return left, nil
+			}
+
+		case TERNARY_TRUE:
+			if left == false {
+				right = shortCircuitHolder
+			}
+		case TERNARY_FALSE:
+			if left != nil {
+				right = shortCircuitHolder
+			}
 		}
 	}
 

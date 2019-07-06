@@ -11,7 +11,6 @@ import (
 	"net"
 	"os"
 
-	. "gopkg.in/check.v1"
 	"gopkg.in/yaml.v2"
 )
 

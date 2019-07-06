@@ -1460,7 +1460,7 @@ func makeConstraintsCACert(constraints constraintsSpec, name string, key *ecdsa.
 		NotAfter:              time.Unix(2000, 0),
 		KeyUsage:              KeyUsageCertSign,
 		BasicConstraintsValid: true,
-		IsCA: true,
+		IsCA:                  true,
 	}
 
 	if err := addConstraintsToTemplate(constraints, template); err != nil {
@@ -1498,7 +1498,7 @@ func makeConstraintsLeafCert(leaf leafSpec, key *ecdsa.PrivateKey, parent *Certi
 		NotAfter:              time.Unix(2000, 0),
 		KeyUsage:              KeyUsageDigitalSignature,
 		BasicConstraintsValid: true,
-		IsCA: false,
+		IsCA:                  false,
 	}
 
 	for _, name := range leaf.sans {

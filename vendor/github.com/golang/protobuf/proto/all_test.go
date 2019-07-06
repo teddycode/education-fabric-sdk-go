@@ -327,7 +327,7 @@ func TestMarshalerEncoding(t *testing.T) {
 			// Since there's an error that can be continued after,
 			// the buffer should be written.
 			want: []byte{
-				10, 3, // for &msgWithFakeMarshaler
+				10, 3,   // for &msgWithFakeMarshaler
 				5, 6, 7, // for &fakeMarshaler
 			},
 			errType: reflect.TypeOf(&RequiredNotSetError{}),

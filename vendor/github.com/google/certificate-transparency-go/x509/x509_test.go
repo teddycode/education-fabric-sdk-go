@@ -222,7 +222,7 @@ func TestMarshalRSAPublicKey(t *testing.T) {
 				0x02, 1, // INTEGER, 1 byte
 				17,
 				0x02, 1, // INTEGER, 1 byte
-				3, // 3
+				3,       // 3
 			},
 		}, {
 			derBytes: []byte{
@@ -239,7 +239,7 @@ func TestMarshalRSAPublicKey(t *testing.T) {
 				0x02, 1, // INTEGER, 1 byte
 				17,
 				0x02, 1, // INTEGER, 1 byte
-				0xff, // -1
+				0xff,    // -1
 			},
 			expectedErrSubstr: "zero or negative",
 		}, {
@@ -263,7 +263,7 @@ func TestMarshalRSAPublicKey(t *testing.T) {
 		}, {
 			derBytes: []byte{
 				0x30, 10, // SEQUENCE
-				0x02, 1, // INTEGER, 1 byte
+				0x02, 1,  // INTEGER, 1 byte
 				17,
 				0x02, 5, // INTEGER, 5 bytes
 				0x00, 0x80, 0x00, 0x00, 0x00,
@@ -662,7 +662,7 @@ func TestCreateSelfSignedCertificate(t *testing.T) {
 			UnknownExtKeyUsage: testUnknownExtKeyUsage,
 
 			BasicConstraintsValid: true,
-			IsCA: true,
+			IsCA:                  true,
 
 			OCSPServer:            []string{"http://ocsp.example.com"},
 			IssuingCertificateURL: []string{"http://crt.example.com/ca1.crt"},
@@ -1783,7 +1783,7 @@ func TestMaxPathLen(t *testing.T) {
 		NotAfter:  time.Unix(100000, 0),
 
 		BasicConstraintsValid: true,
-		IsCA: true,
+		IsCA:                  true,
 	}
 
 	cert1 := serialiseAndParse(t, template)
@@ -1824,8 +1824,8 @@ func TestNoAuthorityKeyIdInSelfSignedCert(t *testing.T) {
 		NotAfter:  time.Unix(100000, 0),
 
 		BasicConstraintsValid: true,
-		IsCA:         true,
-		SubjectKeyId: []byte{1, 2, 3, 4},
+		IsCA:                  true,
+		SubjectKeyId:          []byte{1, 2, 3, 4},
 	}
 
 	if cert := serialiseAndParse(t, template); len(cert.AuthorityKeyId) != 0 {

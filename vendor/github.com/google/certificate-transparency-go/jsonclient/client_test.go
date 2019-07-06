@@ -180,7 +180,7 @@ func MockServer(t *testing.T, failCount int, retryAfter int) *httptest.Server {
 		case "/retry-rfc1123":
 			if failCount > 0 {
 				failCount--
-				w.Header().Add("Retry-After", time.Now().Add(time.Duration(retryAfter)*time.Second).Format(time.RFC1123))
+				w.Header().Add("Retry-After", time.Now().Add(time.Duration(retryAfter) * time.Second).Format(time.RFC1123))
 				w.WriteHeader(http.StatusServiceUnavailable)
 			} else {
 				fmt.Fprintf(w, `{"tree_size": 11, "timestamp": 99}`)

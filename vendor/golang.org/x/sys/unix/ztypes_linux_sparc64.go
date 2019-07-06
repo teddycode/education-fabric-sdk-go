@@ -14,9 +14,9 @@ const (
 )
 
 type (
-	_C_short     int16
-	_C_int       int32
-	_C_long      int64
+	_C_short int16
+	_C_int int32
+	_C_long int64
 	_C_long_long int64
 )
 

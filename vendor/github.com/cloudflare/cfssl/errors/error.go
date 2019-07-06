@@ -26,38 +26,38 @@ const (
 	Success Category = 1000 * iota // 0XXX
 
 	// CertificateError indicates a fault in a certificate.
-	CertificateError // 1XXX
+	CertificateError  // 1XXX
 
 	// PrivateKeyError indicates a fault in a private key.
-	PrivateKeyError // 2XXX
+	PrivateKeyError  // 2XXX
 
 	// IntermediatesError indicates a fault in an intermediate.
-	IntermediatesError // 3XXX
+	IntermediatesError  // 3XXX
 
 	// RootError indicates a fault in a root.
-	RootError // 4XXX
+	RootError  // 4XXX
 
 	// PolicyError indicates an error arising from a malformed or
 	// non-existent policy, or a breach of policy.
-	PolicyError // 5XXX
+	PolicyError  // 5XXX
 
 	// DialError indicates a network fault.
-	DialError // 6XXX
+	DialError  // 6XXX
 
 	// APIClientError indicates a problem with the API client.
-	APIClientError // 7XXX
+	APIClientError  // 7XXX
 
 	// OCSPError indicates a problem with OCSP signing
-	OCSPError // 8XXX
+	OCSPError  // 8XXX
 
 	// CSRError indicates a problem with CSR parsing
-	CSRError // 9XXX
+	CSRError  // 9XXX
 
 	// CTError indicates a problem with the certificate transparency process
-	CTError // 10XXX
+	CTError  // 10XXX
 
 	// CertStoreError indicates a problem with the certificate store
-	CertStoreError // 11XXX
+	CertStoreError  // 11XXX
 )
 
 // None is a non-specified error.
@@ -89,15 +89,15 @@ const (
 	// VerifyFailed is an X.509 verification failure. The least two
 	// significant digits of 12XX is determined as the actual x509
 	// error is examined.
-	VerifyFailed // Code 12XX
+	VerifyFailed  // Code 12XX
 
 	// BadRequest indicates that the certificate request is invalid.
-	BadRequest // Code 13XX
+	BadRequest  // Code 13XX
 
 	// MissingSerial indicates that the profile specified
 	// 'ClientProvidesSerialNumbers', but the SignRequest did not include a serial
 	// number.
-	MissingSerial // Code 14XX
+	MissingSerial  // Code 14XX
 )
 
 const (
@@ -116,15 +116,15 @@ const (
 	// NotRSAOrECC indicates that they key is not an RSA or ECC
 	// private key; these are the only two private key types supported
 	// at this time by CFSSL.
-	NotRSAOrECC //22XX
+	NotRSAOrECC  //22XX
 
 	// KeyMismatch indicates that the private key does not match
 	// the public key or certificate being presented with the key.
-	KeyMismatch //23XX
+	KeyMismatch  //23XX
 
 	// GenerationFailed indicates that a private key could not
 	// be generated.
-	GenerationFailed //24XX
+	GenerationFailed  //24XX
 
 	// Unavailable indicates that a private key mechanism (such as
 	// PKCS #11) was requested but support for that mechanism is
@@ -141,16 +141,16 @@ const (
 
 	// InvalidPolicy indicates that policy being requested is not
 	// a valid policy or does not exist.
-	InvalidPolicy // 52XX
+	InvalidPolicy  // 52XX
 
 	// InvalidRequest indicates a certificate request violated the
 	// constraints of the policy being applied to the request.
-	InvalidRequest // 53XX
+	InvalidRequest  // 53XX
 
 	// UnknownProfile indicates that the profile does not exist.
-	UnknownProfile // 54XX
+	UnknownProfile  // 54XX
 
-	UnmatchedWhitelist // 55xx
+	UnmatchedWhitelist  // 55xx
 )
 
 // The following are API client related errors, and should be

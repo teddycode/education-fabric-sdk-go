@@ -157,9 +157,9 @@ type streamState uint32
 
 const (
 	streamActive    streamState = iota
-	streamWriteDone             // EndStream sent
-	streamReadDone              // EndStream received
-	streamDone                  // the entire stream is finished.
+	streamWriteDone  // EndStream sent
+	streamReadDone   // EndStream received
+	streamDone       // the entire stream is finished.
 )
 
 // Stream represents an RPC in the transport layer.

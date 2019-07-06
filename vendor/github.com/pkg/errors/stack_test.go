@@ -170,7 +170,7 @@ func TestStackTrace(t *testing.T) {
 			`github.com/pkg/errors.(func·009|TestStackTrace.func1)` +
 				"\n\t.+/github.com/pkg/errors/stack_test.go:169", // this is the stack of New
 			"github.com/pkg/errors.TestStackTrace\n" +
-				"\t.+/github.com/pkg/errors/stack_test.go:169", // this is the stack of New's caller
+				"\t.+/github.com/pkg/errors/stack_test.go:169",   // this is the stack of New's caller
 		},
 	}, {
 		Cause(func() error {
@@ -183,7 +183,7 @@ func TestStackTrace(t *testing.T) {
 			`github.com/pkg/errors.(func·011|TestStackTrace.func2)` +
 				"\n\t.+/github.com/pkg/errors/stack_test.go:179", // this is the stack of Errorf's caller
 			"github.com/pkg/errors.TestStackTrace\n" +
-				"\t.+/github.com/pkg/errors/stack_test.go:180", // this is the stack of Errorf's caller's caller
+				"\t.+/github.com/pkg/errors/stack_test.go:180",   // this is the stack of Errorf's caller's caller
 		},
 	}}
 	for i, tt := range tests {

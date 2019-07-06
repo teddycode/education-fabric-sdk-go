@@ -167,7 +167,7 @@ var signatureAlgorithmDetails = []struct {
 	pubKeyAlgo x509.PublicKeyAlgorithm
 	hash       crypto.Hash
 }{
-	{x509.MD2WithRSA, oidSignatureMD2WithRSA, x509.RSA, crypto.Hash(0) /* no value for MD2 */},
+	{x509.MD2WithRSA, oidSignatureMD2WithRSA, x509.RSA, crypto.Hash(0) /* no value for MD2 */ },
 	{x509.MD5WithRSA, oidSignatureMD5WithRSA, x509.RSA, crypto.MD5},
 	{x509.SHA1WithRSA, oidSignatureSHA1WithRSA, x509.RSA, crypto.SHA1},
 	{x509.SHA256WithRSA, oidSignatureSHA256WithRSA, x509.RSA, crypto.SHA256},
@@ -330,7 +330,7 @@ func (req *Request) Marshal() ([]byte, error) {
 					Cert: certID{
 						pkix.AlgorithmIdentifier{
 							Algorithm:  hashAlg,
-							Parameters: asn1.RawValue{Tag: 5 /* ASN.1 NULL */},
+							Parameters: asn1.RawValue{Tag: 5 /* ASN.1 NULL */ },
 						},
 						req.IssuerNameHash,
 						req.IssuerKeyHash,
@@ -700,7 +700,7 @@ func CreateResponse(issuer, responderCert *x509.Certificate, template Response, 
 		CertID: certID{
 			HashAlgorithm: pkix.AlgorithmIdentifier{
 				Algorithm:  hashOID,
-				Parameters: asn1.RawValue{Tag: 5 /* ASN.1 NULL */},
+				Parameters: asn1.RawValue{Tag: 5 /* ASN.1 NULL */ },
 			},
 			NameHash:      issuerNameHash,
 			IssuerKeyHash: issuerKeyHash,

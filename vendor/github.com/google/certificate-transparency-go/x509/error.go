@@ -91,10 +91,10 @@ const (
 	InvalidASN1Type
 	UnexpectedAdditionalData
 	// Errors in X.509
-	PoorlyFormedCertificate // Fails a SHOULD clause
-	MalformedCertificate    // Fails a MUST clause
-	PoorlyFormedCRL         // Fails a SHOULD clause
-	MalformedCRL            // Fails a MUST clause
+	PoorlyFormedCertificate  // Fails a SHOULD clause
+	MalformedCertificate     // Fails a MUST clause
+	PoorlyFormedCRL          // Fails a SHOULD clause
+	MalformedCRL             // Fails a MUST clause
 	// Errors relative to CA/Browser Forum guidelines
 	BaselineRequirementsFailure
 	EVRequirementsFailure

@@ -33,7 +33,6 @@ func TestWin32finddata(t *testing.T) {
 		fd  windows.Win32finddata
 		got byte
 		pad [10]byte // to protect ourselves
-
 	}
 	var want byte = 2 // it is unlikely to have this character in the filename
 	x := X{got: want}

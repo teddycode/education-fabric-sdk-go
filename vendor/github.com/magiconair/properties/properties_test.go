@@ -829,7 +829,7 @@ func TestCustomExpansionExpression(t *testing.T) {
 
 func TestPanicOn32BitIntOverflow(t *testing.T) {
 	is32Bit = true
-	var min, max int64 = math.MinInt32 - 1, math.MaxInt32 + 1
+	var min, max int64 = math.MinInt32-1, math.MaxInt32+1
 	input := fmt.Sprintf("min=%d\nmax=%d", min, max)
 	p := mustParse(t, input)
 	assert.Equal(t, p.MustGetInt64("min"), min)

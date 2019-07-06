@@ -669,11 +669,11 @@ func TestOverrideValidity(t *testing.T) {
 	if err != nil {
 		t.Fatalf("%v", err)
 	}
-	if !cert.NotBefore.After(now.Add(-10*time.Minute)) || !cert.NotBefore.Before(now.Add(10*time.Minute)) {
+	if !cert.NotBefore.After(now.Add(-10 * time.Minute)) || !cert.NotBefore.Before(now.Add(10 * time.Minute)) {
 		t.Fatalf("Unexpected NotBefore: wanted %s +/-10 minutes, got %s", now, cert.NotBefore)
 	}
 	expectedNotAfter := now.Round(time.Minute).Add(expiry)
-	if !cert.NotAfter.After(expectedNotAfter.Add(-10*time.Minute)) || !cert.NotAfter.Before(expectedNotAfter.Add(10*time.Minute)) {
+	if !cert.NotAfter.After(expectedNotAfter.Add(-10 * time.Minute)) || !cert.NotAfter.Before(expectedNotAfter.Add(10 * time.Minute)) {
 		t.Fatalf("Unexpected NotAfter: wanted %s +/-10 minutes, got %s", now, cert.NotAfter)
 	}
 
@@ -693,7 +693,7 @@ func TestOverrideValidity(t *testing.T) {
 		t.Fatalf("Unexpected NotBefore: wanted %s, got %s", req.NotBefore, cert.NotBefore)
 	}
 	expectedNotAfter = req.NotBefore.Add(expiry)
-	if !cert.NotAfter.After(expectedNotAfter.Add(-10*time.Minute)) || !cert.NotAfter.Before(expectedNotAfter.Add(10*time.Minute)) {
+	if !cert.NotAfter.After(expectedNotAfter.Add(-10 * time.Minute)) || !cert.NotAfter.Before(expectedNotAfter.Add(10 * time.Minute)) {
 		t.Fatalf("Unexpected NotAfter: wanted %s +/-10 minutes, got %s", expectedNotAfter, cert.NotAfter)
 	}
 
@@ -709,7 +709,7 @@ func TestOverrideValidity(t *testing.T) {
 	if err != nil {
 		t.Fatalf("%v", err)
 	}
-	if !cert.NotBefore.After(now.Add(-10*time.Minute)) || !cert.NotBefore.Before(now.Add(10*time.Minute)) {
+	if !cert.NotBefore.After(now.Add(-10 * time.Minute)) || !cert.NotBefore.Before(now.Add(10 * time.Minute)) {
 		t.Fatalf("Unexpected NotBefore: wanted %s +/-10 minutes, got %s", now, cert.NotBefore)
 	}
 	if !cert.NotAfter.Equal(req.NotAfter) {

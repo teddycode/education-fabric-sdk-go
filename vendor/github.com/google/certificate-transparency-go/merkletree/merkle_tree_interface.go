@@ -16,7 +16,8 @@
 package merkletree
 
 // MerkleTreeInterface represents the common interface for basic MerkleTree functions.
-type MerkleTreeInterface interface { // nolint: golint
+type MerkleTreeInterface interface {
+	// nolint: golint
 	// LeafCount returns the number of leaves in the tree
 	LeafCount() uint64
 
